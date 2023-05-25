@@ -1,0 +1,36 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+
+
+<div class="">
+    <h1 class="text-center">
+        Iniciar Sesión
+    </h1>
+    <form action="{% url 'login.store' %}" method="POST" class="pt-5">
+        {% csrf_token %}
+        <div class="mb-3">
+            <center>
+            <label for="username" class="form-label">Usuario</label>
+            <input type="text" class="form-control"  style="width: 30% ;"  id="username" name="username" required>
+            </center>
+        </div>
+        <div class="mb-3"  >
+            <center>
+            <label for="password" class="form-label" >Contraseña</label>
+            <input type="password" class="form-control"  style="width: 30%;" id="password" name="password" required>
+            </center>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 justify-content-start ">
+                <center>
+                    <button type="submit" class="btn btn-primary" color="blue">Ingresar</button>
+                    <a  href="{% url 'signup.form' %}" class="btn btn-primary" >registrarse</a>
+                    <a href="{% url 'landing' %}" class="btn btn-warning" >Cancelar</a                   
+                </center> 
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center align-items-center pt-5 pb-5">
+    <h1 class="text-center" style="color: rgb(7, 7, 7);">
+        CATEGORIAS
+    </h1>
+</div>
+
+<div >
+    <div class="row d-flex justify-content-center mb-2">
+        <div class="col-sm-10 d-flex">
+            <a class="btn btn-primary" href="{% url 'projects.create' %}">Agregar</a>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        {% for project in projects %}
+        <div class="col-sm-10">
+            <div class="card shadow-sm mb-3">
+                <div class="card-body">
+                    <h5 class="card-title p-2">{{ project.name }}</h5>
+                    <p class="card-text p-2">
+                        {{ project.description }}
+                    </p>
+                </div>
+                <div class="card-footer d-flex" style="background-color: black;">
+                    <a class="btn btn-primary" href="{% url 'projects.detail' project.id %}"  >Ver</a>
+                    <a>-</a>
+                    <a class="btn btn-primary" href="{% url 'projects.edit' project.id %}"   >Editar</a>
+                    <a>-</a>
+                    <a class="btn btn-warning" href="{% url 'projects.delete' project.id %}"  >Eliminar</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

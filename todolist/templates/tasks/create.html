@@ -1,0 +1,51 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center align-items-center pt-5 pb-5">
+    <h1 class="text-center">
+        Agregar
+    </h1>
+</div>
+
+<form action="{% url 'tasks.store' %}" method="POST" class="pt-5">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="imagen"class="form-label">Selecionar imagen: </label>
+        <input type="text" class="form-control"  id="imagen" name="imagen">
+    </div>
+    <div class="mb-3">
+        <label for="title" class="form-label">Marca</label>
+        <input type="text" class="form-control" id="title" name="title">
+    </div>
+    
+    <div class="mb-3">
+        <label for="description" class="form-label">Descripción</label>
+        <textarea type="text" class="form-control" id="description" name="description"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="precio" class="form-label"> Precio: $</label>
+        <textarea type="number" class="form-control" id="precio" name="precio"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="tallas" class="form-label"> tallas: $</label>
+        <textarea type="text" class="form-control" id="tallas" name="tallas"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="project" class="form-label">Categoria</label>
+        <select class="form-control" name="project_id" id="project">
+            {% for project in projects %}
+                <option value="{{ project.id }}">{{ project.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 justify-content-start">
+            <button type="submit" class="btn btn-outline-dark">Guardar</button>
+            <a href="{% url 'tasks.list' %}" class="btn btn-outline-dark">Cancelar</a>
+        </div>
+    </div>
+    
+</form>
+
+{% endblock %}
