@@ -38,9 +38,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         {% if user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{% url 'logout' %}" style="color: rgb(0, 0, 0);">Cerrar Sesión</a>
-                        </li>
+                        
                         {% else %}
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{% url 'login.form' %}" style="color: rgb(0, 0, 0);">Iniciar Sesión</a>
@@ -51,6 +49,10 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'tasks.list' %}" style="color: rgb(0, 0, 0);">Todo</a>
+                        </li>
+                        <li class="nav-item " style=" justify-content: flex-end; ">
+                            <a class="btn btn-warning" href="{% url 'logout' %}" style="text-align: right;" >Cerrar Sesión</a>
+                            
                         </li>
                     </ul>
                 </div>
