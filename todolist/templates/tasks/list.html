@@ -36,7 +36,10 @@
                         <p style="text-transform: uppercase;">
                            <b style="text-transform: capitalize">Tallas Disponibles: </b> {{ task.tallas }}
                         </p>
-                        </center>
+                        <p>
+                            <b style="text-transform: capitalize">Categoria: </b> {{ task.project.name }}
+                         </p>
+                    </center>
                 </div>
                 <div class="card-footer d-flex justify-content-center align-items-center" style="background-color: black;">
                     <a class="btn btn-primary" href="{% url 'tasks.edit' task.id %}" >Editar</a>

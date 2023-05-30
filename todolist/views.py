@@ -112,8 +112,11 @@ def showUpdateTaskForm(request, task_id):
 @login_required
 def updateTask(request,task_id):
     task = get_object_or_404(Task, id=task_id)
+    task.imagen=request.POST["imagen"]
     task.title=request.POST["title"]
     task.description=request.POST["description"]
+    task.precio=request.POST["precio"]
+    task.tallas=request.POST["tallas"]
     task.done=request.POST["done"]
     task.project_id=request.POST["project_id"]
     task.save()

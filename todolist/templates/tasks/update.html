@@ -11,12 +11,24 @@
 <form action="{% url 'tasks.update' task.id %}" method="POST" class="pt-5">
     {% csrf_token %}
     <div class="mb-3">
-        <label for="title" class="form-label">Nombra</label>
-        <input type="text" class="form-control" id="title" name="title" value="{{ task.title }}">
+        <label for="imagen"class="form-label">Imagen: </label>
+        <textarea type="text" class="form-control" id="imagen" name="imagen">{{ task.imagen }}</textarea>
+    </div>
+    <div class="mb-3">
+        <label for="title" class="form-label">Marca</label>
+        <textarea type="text" class="form-control" id="title" name="title">{{ task.title }}</textarea>
     </div>
     <div class="mb-3">
         <label for="description" class="form-label">Descripción</label>
         <textarea type="text" class="form-control" id="description" name="description">{{ task.description }}</textarea>
+    </div>
+    <div class="mb-3">
+        <label for="precio" class="form-label"> Precio: $</label>
+        <textarea type="number" class="form-control" id="precio" name="precio">{{task.precio}}</textarea>
+    </div>
+    <div class="mb-3">
+        <label for="tallas" class="form-label"> tallas: $</label>
+        <textarea type="text" class="form-control" id="tallas" name="tallas">{{task.tallas}}</textarea>
     </div>
     <div class="mb-3">
         <label for="project" class="form-label">Categoria</label>
@@ -36,6 +48,7 @@
             {% if task.done == 1 %}
             <option value="1" selected>Disponible</option>
             {% else %}
+            
             <option value="1" >Disponible</option>
             {% endif %}
             {% if task.done == 0 %}
@@ -47,8 +60,8 @@
     </div>
     <div class="row">
         <div class="col-sm-12 justify-content-start">
-            <button type="submit" class="btn btn-outline-dark">Actualizar</button>
-            <a href="{% url 'tasks.list' %}" class="btn btn-outline-dark">Cancelar</a>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+            <a href="{% url 'tasks.list' %}" class="btn btn-warning">Cancelar</a>
         </div>
     </div>
 
